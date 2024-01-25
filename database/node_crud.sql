@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-01-2024 a las 16:53:26
--- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.2.12
+-- Tiempo de generación: 25-01-2024 a las 17:08:49
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `nodejs_logro_b`
+-- Base de datos: `node_crud`
 --
 
 -- --------------------------------------------------------
@@ -27,21 +27,27 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `empleados`
 --
 
--- CREATE TABLE `empleados` (
---   `id` bigint(20) UNSIGNED NOT NULL,
---   `nombre` varchar(255) NOT NULL,
---   `fechaContratacion` date NOT NULL,
---   `salario` int(11) NOT NULL,
---   `horasTrabajadas` int(11) NOT NULL,
---   `departamento` varchar(255) NOT NULL,
---   `Pagado` tinyint(1) NOT NULL DEFAULT 0
--- ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE `empleados` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `nombre` varchar(255) NOT NULL,
+  `fechaContratacion` date NOT NULL,
+  `salario` int(11) NOT NULL,
+  `horasTrabajadas` int(11) NOT NULL,
+  `departamento` varchar(255) NOT NULL,
+  `Pagado` tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `empleados`
 --
 
-
+INSERT INTO `empleados` (`id`, `nombre`, `fechaContratacion`, `salario`, `horasTrabajadas`, `departamento`, `Pagado`) VALUES
+(1, 'Christofer Chavarria', '2024-01-24', 9, 8, 'Medicina', 1),
+(2, 'Paola Santos', '2024-01-21', 600, 15, 'Administración de empresas', 1),
+(3, 'Julio Gilces', '2024-01-19', 400, 24, 'Medicina', 0),
+(4, 'Yira Molina', '2023-11-16', 480, 12, 'Docente', 0),
+(5, 'Melanie Chavarria', '2024-01-14', 300, 12, 'Social', 0),
+(6, 'Amy Chavarria', '2024-01-14', 10, 4, 'Veterinaria', 1);
 
 -- --------------------------------------------------------
 
@@ -131,6 +137,11 @@ CREATE TABLE `tareas` (
 -- Volcado de datos para la tabla `tareas`
 --
 
+INSERT INTO `tareas` (`id`, `nombre`, `horas`, `id_empleado`) VALUES
+(6, 'Portada', 1, 7),
+(7, 'Editar', 11, 9),
+(8, 'Admin', 7, 7),
+(9, 'Medicina', 4, 12);
 
 -- --------------------------------------------------------
 
@@ -208,7 +219,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `empleados`
 --
 ALTER TABLE `empleados`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `failed_jobs`
@@ -232,7 +243,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT de la tabla `tareas`
 --
 ALTER TABLE `tareas`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `users`

@@ -31,7 +31,7 @@ exports.tareaxs = (req, res) => {
         const horasTrabajadas = resultadosEmpleado[0].horasTrabajadas;
 
         if (horasTrabajadas < horas) {
-          const flash=   'Las horas de tarea no pueden ser mayores a las horas trabajadas.';
+          const flash=   'El tiempo invertido en la tarea supera las horas trabajadas.';
             return res.render('tareasfin',{flash});
         } else {
             const nuevaTarea = {
@@ -44,11 +44,11 @@ exports.tareaxs = (req, res) => {
             conexion.query(consultaInsertarTarea, nuevaTarea, (error) => {
                 if (error) {
                     console.log(error);
-                    req.flash('failMessage', 'Error en el servidor');
+                    req.flash('failMessage', 'Fatal Error');
                     return res.redirect('/index');
                 }
 
-                req.flash('successMessage', 'Tarea creada exitosamente.');
+                req.flash('successMessage', 'Se creo la tarea correctamente.');
                 return res.redirect('/create');
             });
         }
