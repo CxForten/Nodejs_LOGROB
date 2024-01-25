@@ -1,16 +1,22 @@
-const express = require('express');
-const app = express();
-const path = require ('path');
-const expressLayouts = require('express-ejs-layouts');
+const express=require('express')
+const app=express()
+const path=require('path')
+const expressLayouts=require('express-ejs-layouts')
 
-app.set('view engine', 'ejs');
+//settings
+app.set('view engine','ejs')
+app.set('port',process.env.PORT||3000)
+
+//middlewares
 
 app.use(expressLayouts)
 app.use(express.static(path.join(__dirname,'public')))
 app.use(express.urlencoded({extended:false}))
 app.use(express.json())
 
+
 app.use('/',require('./router'))
-app.listen(5000, ()=>{
-    console.log("Server is running on port http://localhost:5000")
+
+app.listen(app.get('port'),()=>{
+    console.log(`conexion exitosa con http://localhost:${app.get('port')}`)
 })
