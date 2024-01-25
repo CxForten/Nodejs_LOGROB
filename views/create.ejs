@@ -1,0 +1,42 @@
+<div class="card card-primary">
+        <div class="card-header col-md-12">
+            <h3 class="card-title">Registrar empleado</h3>
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <div class="card-body">
+            <form method="POST" action="/store">
+      
+        <div class="form-group">
+          <label for="exampleInputEmail1">Nombre</label>
+          <input type="text" name="nombre" class="form-control" id="exampleInputEmail1" required placeholder="Ingrese nombre empleado">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputEmail3">Fecha de contratación</label>
+            <input type="date" name="fechaContratacion" class="form-control " id="exampleInputEmail3" required max="<%= new Date().toISOString().split('T')[0] %>">
+          </div>
+
+          <label for="exampleInputEmail3">Salario</label>
+          <input type="number" name="salario" class="form-control" id="exampleInputEmail3" 
+                 pattern="[0-9]+([\.,][0-9]+)?" title="Ingrese un número decimal válido" 
+                 required min="0" placeholder="ejem: 100, 200, 400..."> <br>
+          <div class="form-group">
+            <label for="exampleInputEmail3">Horas trabajadas</label>
+            <input type="number" name="horasTrabajadas" class="form-control" id="exampleInputEmail3" required min="0" placeholder="ejem: 1, 10, 12, 17...">
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputEmail3">Departamento</label>
+            <input type="text" name="departamento" class="form-control" id="exampleInputEmail3" required placeholder="ejem: Medicina, programación, administración...">
+          </div>
+
+      
+
+      <div class="">
+          <button type="submit" class="btn btn-block bg-gradient-primary">Registrar</button>
+        </div>
+    </form>
+</div>
+</div>
+
